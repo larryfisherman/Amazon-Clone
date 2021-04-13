@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { pushItems } from "../store/checkoutSlice";
 
 function Product({ id, title, image, price, rating }) {
+  const dispatch = useDispatch();
+
+  const onAddItem = (item) => {
+    dispatch(pushItems({ item }));
+  };
+
   return (
     <div className="product">
       <div className="product__Info">
@@ -18,7 +26,19 @@ function Product({ id, title, image, price, rating }) {
         </div>
       </div>
       <img src={image} alt="" />
-      <button>Add to basket</button>
+      <button
+        onClick={(e) =>
+          onAddItem({
+            id,
+            title,
+            image,
+            price,
+            rating,
+          })
+        }
+      >
+        Add to basket
+      </button>
     </div>
   );
 }
