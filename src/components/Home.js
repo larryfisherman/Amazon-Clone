@@ -1,7 +1,10 @@
 import React from "react";
 import Product from "./Product";
+import { useSelector } from "react-redux";
+import { selectItems } from "../store/checkoutSlice";
 
 function Home() {
+  const basketList = useSelector(selectItems);
   return (
     <div className="home">
       <div className="home__container">
@@ -12,6 +15,7 @@ function Home() {
         />
         <div className="home__container__row">
           <Product
+            id="123123"
             title="The lean startup"
             price={29.99}
             image={
@@ -20,6 +24,7 @@ function Home() {
             rating={5}
           />
           <Product
+            id="321321"
             title="HP 24mh FHD Monitor - Computer Monitor with 23.8-Inch IPS Display (1080p)"
             price={169.99}
             image={
@@ -30,6 +35,7 @@ function Home() {
         </div>
         <div className="home__container__row">
           <Product
+            id="23232"
             title="TomCare Cube Storage 12-Cube Bookshelf Closet "
             price={52.99}
             image={
@@ -38,6 +44,7 @@ function Home() {
             rating={5}
           />
           <Product
+            id="767676"
             title="Amazon Basics Double Braided Nylon Lightning to USB Cable"
             price={7.99}
             image={
@@ -46,6 +53,7 @@ function Home() {
             rating={3}
           />
           <Product
+            id="56454"
             title="Amazon Basics L-Shape Computer Desk"
             price={129.99}
             image={
@@ -56,6 +64,7 @@ function Home() {
         </div>
         <div className="home__container__row">
           <Product
+            id="58483"
             title="Amazon Basics Edge Free Projector Screen"
             price={69.99}
             image={

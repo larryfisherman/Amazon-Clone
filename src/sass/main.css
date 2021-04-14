@@ -180,6 +180,10 @@
   color: #111;
 }
 
+.product > button:hover {
+  cursor: pointer;
+}
+
 .checkout {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -243,5 +247,47 @@
 
 .subtotal__gift > input {
   margin-right: 5px;
+}
+
+.checkoutProduct {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.checkoutProduct__info {
+  padding-left: 20px;
+}
+
+.checkoutProduct__info > button {
+  background-color: #f0c14b;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734;
+  color: black;
+}
+
+.checkoutProduct__info > button:hover {
+  cursor: pointer;
+}
+
+.checkoutProduct__info__rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkoutProduct__info__title {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.checkoutProduct__image {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 180px;
+  height: 180px;
 }
 /*# sourceMappingURL=main.css.map */

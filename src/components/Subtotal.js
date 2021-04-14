@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import CurrencyFormat from "react-currency-format";
+import { selectItems, getBasketTotal } from "../store/checkoutSlice";
 
 function Subtotal() {
+  const basketItems = useSelector(selectItems);
+
   return (
     <div className="subtotal">
       <CurrencyFormat
         renderText={(value) => (
           <>
             <p>
-              Subtotal (0 items): <strong>0</strong>
+              Subtotal ({basketItems?.length} items): <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift.
@@ -16,7 +20,7 @@ function Subtotal() {
           </>
         )}
         decimalScale={2}
-        value={0}
+        value={getBasketTotal(basketItems)}
         displayType={"text"}
         thousandSeparator={true}
         prefix={"$"}

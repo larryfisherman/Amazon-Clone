@@ -1,9 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
+import { selectItems } from "../store/checkoutSlice";
 
 function Header() {
+  const bucketItems = useSelector(selectItems);
   return (
     <div className="header">
       <Link to="/">
@@ -34,7 +37,7 @@ function Header() {
           <div className="header__basketOption">
             <ShoppingBasketIcon />
             <span className="header__navOption__lineTwo header__basketCount">
-              0
+              {bucketItems.length}
             </span>
           </div>
         </Link>
