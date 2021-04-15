@@ -1,12 +1,26 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { selectItems } from "../store/checkoutSlice";
+import { selectUser, login, logout } from "../store/userSlice";
+import { auth } from "../firebase/firebase";
 
 function Header() {
   const bucketItems = useSelector(selectItems);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const user = useSelector(selectUser);
+
+  const loginToggle = () => {
+    if (user) {
+      auth.signOut();
+    } else {
+    }
+  };
+
   return (
     <div className="header">
       <Link to="/">
@@ -21,10 +35,14 @@ function Header() {
         <SearchIcon className="header__searchIcon" />
       </div>
       <div className="header__nav">
-        <Link to="/login">
-          <div className="header__navOption">
-            <span className="header__navOption__lineOne">Hello Guest</span>
-            <span className="header__navOption__lineTwo">Sign in</span>
+        <Link to={!user && "/login"}>
+          <div className="header__navOption" onClick={loginToggle}>
+            <span className="header__navOption__lineOne">
+              Hello {user ? user.email : "Guest"}
+            </span>
+            <span className="header__navOption__lineTwo">
+              {user ? "Log out" : "Sign in"}
+            </span>
           </div>
         </Link>
         <div className="header__navOption">

@@ -71,11 +71,15 @@
 
 .header__navOption__lineOne {
   font-size: 10px;
+  color: white;
+  text-decoration: none;
 }
 
 .header__navOption__lineTwo {
   font-size: 13px;
   font-weight: 800;
+  color: white;
+  text-decoration: none;
 }
 
 .header__basketOption {
@@ -307,12 +311,76 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.login > img {
+.login__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 6px;
+  border: 1px solid lightgray;
+  padding: 20px;
+}
+
+.login__container > h1 {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.login__container > form > h4 {
+  margin-bottom: 5px;
+}
+
+.login__container > form > input {
+  height: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.login__container > p {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.login__container__signInButton {
+  background-color: #f0c14b;
+  border-radius: 3px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734;
+}
+
+.login__container__registerButton {
+  width: 100%;
+  height: 30px;
+  border-radius: 3px;
+  margin-top: 10px;
+  border: 1px solid darkgray;
+}
+
+.login__logo {
   width: 120px;
   height: 120px;
   -o-object-fit: contain;
   object-fit: contain;
+  margin: 20px auto 20px auto;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CurrencyFormat from "react-currency-format";
 import { selectItems, getBasketTotal } from "../store/checkoutSlice";
 
 function Subtotal() {
   const basketItems = useSelector(selectItems);
+  const history = useHistory();
 
   return (
     <div className="subtotal">
@@ -25,7 +27,9 @@ function Subtotal() {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <button>Proceed to Checkout </button>
+      <button onClick={(e) => history.push("/payment")}>
+        Proceed to Checkout{" "}
+      </button>
     </div>
   );
 }
