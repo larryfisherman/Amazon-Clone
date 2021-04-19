@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { getBasketTotal } from "../store/checkoutSlice";
 import CurrencyFormat from "react-currency-format";
-import axios from "axios";
+import axios from "../axios/axios";
 import { useHistory } from "react-router-dom";
 
 function Payment() {
