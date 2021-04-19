@@ -9,14 +9,18 @@ import Login from "./components/Login";
 import Payment from "./components/Payment";
 import { auth } from "./firebase/firebase";
 import { login, logout, selectUser } from "./store/userSlice";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const promise = loadStripe(
+  "pk_test_51IhvcDDycHuAifUPvyLPdoKO54EzonTvqUDAOAEjWDuZOxfyG4Xj3xKbOozRwbfaHvXYBUrlKOBfNuUswIpTiukF00h4rkElj3"
+);
 
 function App() {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log("The user is", authUser);
       if (authUser) {
         dispatch(
           login({
@@ -27,7 +31,6 @@ function App() {
         dispatch(logout());
       }
     });
-    console.log(user);
   }, []);
 
   return (
@@ -36,7 +39,9 @@ function App() {
         <Switch>
           <Route path="/payment">
             <Header />
-            <Payment />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           <Route path="/login">
             <Login />
