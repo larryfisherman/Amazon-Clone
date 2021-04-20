@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "./Product";
-import Slider from './Slider'
 
 function Home() {
   return (
@@ -11,7 +10,7 @@ function Home() {
           src="https://images-eu.ssl-images-amazon.com/images/G/48/PL-hq/2021/img/Home/XCM_Manual_ORIGIN_1315528_PL_pl_home_april_1_3771017_1500x600_2X._CB655803445_.jpg"
           alt=""
         />
-        <Slider/>
+
         <div className="home__container__row">
           <Product
             id="123123"
