@@ -1,25 +1,15 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { selectItems } from "../store/checkoutSlice";
-import { selectUser, login, logout } from "../store/userSlice";
+import { selectUser } from "../store/userSlice";
 import { auth } from "../firebase/firebase";
 
 function Header() {
   const bucketItems = useSelector(selectItems);
-  const dispatch = useDispatch();
-  const history = useHistory();
   const user = useSelector(selectUser);
-
-  const loginToggle = () => {
-    if (user) {
-      auth.signOut();
-    } else {
-    }
-  };
 
   return (
     <div className="header">
@@ -36,7 +26,15 @@ function Header() {
       </div>
       <div className="header__nav">
         <Link to={!user && "/login"}>
-          <div className="header__navOption" onClick={loginToggle}>
+          <div
+            className="header__navOption"
+            onClick={() => {
+              if (user) {
+                auth.signOut();
+              } else {
+              }
+            }}
+          >
             <span className="header__navOption__lineOne">
               Hello {user ? user.email : "Guest"}
             </span>
@@ -57,7 +55,7 @@ function Header() {
           <div className="header__basketOption">
             <ShoppingBasketIcon />
             <span className="header__navOption__lineTwo header__basketCount">
-              {bucketItems.length}
+              {bucketItems?.length}
             </span>
           </div>
         </Link>

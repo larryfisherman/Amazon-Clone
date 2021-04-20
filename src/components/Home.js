@@ -1,10 +1,7 @@
 import React from "react";
 import Product from "./Product";
-import { useSelector } from "react-redux";
-import { selectItems } from "../store/checkoutSlice";
 
 function Home() {
-  const basketList = useSelector(selectItems);
   return (
     <div className="home">
       <div className="home__container">

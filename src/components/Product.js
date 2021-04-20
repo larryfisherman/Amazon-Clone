@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSele } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { pushItems } from "../store/checkoutSlice";
 
 function Product({ id, title, image, price, rating }) {

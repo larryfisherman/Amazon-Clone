@@ -12,6 +12,7 @@ app.use(express.json());
 app.get("/", (request, response) => response.status(200).send("hello world"));
 
 app.post("/payments/create", async (request, response) => {
+  // eslint-disable-line no-use-before-define
   const total = request.query.total;
   console.log("Payment request recieved", total);
 

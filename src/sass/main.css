@@ -408,4 +408,27 @@
       -ms-flex: 0.8;
           flex: 0.8;
 }
+
+.orders > h1 {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.order {
+  padding: 40px;
+  margin: 20px 0;
+  border: 1px solid lightgray;
+  background-color: white;
+  position: relative;
+}
+
+.order__id {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
+.order > h1 {
+  padding: 20px;
+}
 /*# sourceMappingURL=main.css.map */

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../store/userSlice";
-import { selectItems } from "../store/checkoutSlice";
+import { selectItems, cleanItems } from "../store/checkoutSlice";
 import CheckoutProduct from "../components/CheckoutProduct";
 import { Link } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
@@ -9,10 +9,12 @@ import { getBasketTotal } from "../store/checkoutSlice";
 import CurrencyFormat from "react-currency-format";
 import axios from "../axios/axios";
 import { useHistory } from "react-router-dom";
+import { db } from "../firebase/firebase";
 
 function Payment() {
   const user = useSelector(selectUser);
   const basketItems = useSelector(selectItems);
+  const dispatch = useDispatch();
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [disabled, setDisabled] = useState(true);
@@ -45,10 +47,19 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         //payment intent = payment confirmation
+
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basketItems,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
         setSucceeded(true);
         setError(null);
         setProcessing(false);
-
         history.replace("/orders");
       });
   };
@@ -74,7 +85,7 @@ function Payment() {
             <h3>Review items and delivery</h3>
           </div>
           <div className="payment__section__items">
-            {basketItems.map((item) => (
+            {basketItems?.map((item) => (
               <CheckoutProduct
                 key={item.id}
                 id={item.id}

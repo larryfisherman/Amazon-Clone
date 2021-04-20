@@ -21,9 +21,12 @@ const checkoutSlice = createSlice({
         console.warn(`Can't remove an item!`);
       }
     },
+    cleanItems: (state) => {
+      state.items = null;
+    },
   },
 });
-export const { pushItems, removeItems } = checkoutSlice.actions;
+export const { pushItems, removeItems, cleanItems } = checkoutSlice.actions;
 export const selectItems = (state) => state.checkout.items;
 export const getBasketTotal = (items) =>
   items?.reduce((amount, item) => item.price + amount, 0);
