@@ -22,7 +22,7 @@ const checkoutSlice = createSlice({
       }
     },
     cleanItems: (state) => {
-      state.items = null;
+      state.items = [];
     },
   },
 });

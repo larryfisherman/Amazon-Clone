@@ -46,12 +46,14 @@ function Login() {
           <h4>E-mail</h4>
           <input
             type="text"
+            placeholder="karkut.albert@gmail.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <h4>Password</h4>
           <input
+            placeholder="123456"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

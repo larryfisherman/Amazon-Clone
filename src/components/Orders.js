@@ -32,11 +32,18 @@ function Orders() {
   return (
     <div className="orders">
       <h1>Your orders</h1>
-      <div className="orders__order">
-        {orders?.map((order) => (
-          <Order order={order} />
-        ))}
-      </div>
+
+      {user ? (
+        <div className="orders__order">
+          {orders?.map((order) => (
+            <Order order={order} />
+          ))}
+        </div>
+      ) : (
+        <div className="orders__order">
+          <p>You need to log in first to see your orders history!</p>
+        </div>
+      )}
     </div>
   );
 }

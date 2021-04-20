@@ -61,6 +61,7 @@ function Payment() {
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+        dispatch(cleanItems());
         history.replace("/orders");
       });
   };

@@ -1,6 +1,12 @@
 .orders {
+  padding: 20px 80px;
+
   & > h1 {
     margin-top: 20px;
     margin-left: 20px;
+  }
+
+  &__order > p {
+    padding: 30px;
   }
 }

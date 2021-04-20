@@ -1,5 +1,6 @@
 .payment {
   background-color: white;
+
   &__container {
     & > h1 {
       padding: 10px;
@@ -28,6 +29,18 @@
     &__items,
     &__details {
       flex: 0.8;
+    }
+
+    &__priceContainer > button {
+      background-color: #f0c14b;
+      border-radius: 2px;
+      width: 100%;
+      height: 30px;
+      border: 1px solid;
+      font-weight: bolder;
+      margin-top: 10px;
+      border-color: #a88734;
+      color: black;
     }
   }
 }
