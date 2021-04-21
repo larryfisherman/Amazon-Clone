@@ -2,25 +2,16 @@ import React from "react";
 import Product from "./Product";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import Slider from "./Slider";
 
 function Home() {
   return (
     <div className="home">
       <div className="home__container">
-        <div className="home__container__image">
-          <Slider className="image" />
-          <div className="home__container__image__arrows">
-            <ArrowBackIosIcon
-              fontSize="large"
-              className="home__container__image__arrows__backArrow"
-            />
-            <ArrowForwardIosIcon
-              fontSize="large"
-              className="home__container__image__arrows__forwardArrow"
-            />
-          </div>
-        </div>
+        <img
+          className="home__container__image"
+          src="https://images-eu.ssl-images-amazon.com/images/G/48/PL-hq/2021/img/Home/XCM_Manual_ORIGIN_1315528_PL_pl_home_april_1_3771017_1500x600_2X._CB655803445_.jpg"
+          alt=""
+        />
 
         <div className="home__container__row">
           <Product
