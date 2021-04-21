@@ -13,9 +13,33 @@
   }
 
   &__container__image {
-    width: 100%;
-    z-index: -1;
-    margin-bottom: -150px;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    margin-bottom: -200px;
+    &__arrows {
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+
+      &__backArrow {
+        z-index: 999;
+        margin-left: 50px;
+        margin-top: -30%;
+      }
+
+      &__forwardArrow {
+        z-index: 999;
+        margin-top: -30%;
+        margin-right: 50px;
+      }
+    }
+
+    & > image {
+      width: 100%;
+      z-index: -1;
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0)
+      );
+    }
   }
 }
